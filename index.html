@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尔滨素昔网络科技有限公司 | 官方网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', // 深岩蓝
+                            primary: '#1e293b', // 次深
+                            accent: '#d97706', // 琥珀金
+                            light: '#f8fafc', // 极简白
+                            grey: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 全局平滑滚动 */
+        html { scroll-behavior: smooth; }
+        
+        /* 动画工具类 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 导航栏磨砂效果 */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* 图片滤镜 */
+        .img-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+        .img-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15,23,42,0.8), transparent);
+        }
+        
+        /* 隐藏滚动条但保留功能 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d97706; 
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-accent rounded-sm flex items-center justify-center text-white font-bold text-xl">素昔科技 SUXI TECH</div>
+                    <div>
+                        <h1 class="text-white font-bold text-lg tracking-wider">哈尔滨素昔网络科技有限公司</h1>
+                        <p class="text-gray-400 text-xs uppercase tracking-widest">素昔科技 SUXI TECH</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-300 hover:text-brand-accent transition text-sm font-medium">首页</a>
+                    <a href="#about" class="text-gray-300 hover:text-brand-accent transition text-sm font-medium">关于我们</a>
+                    <a href="#services" class="text-gray-300 hover:text-brand-accent transition text-sm font-medium">工程设计</a>
+                    <a href="#projects" class="text-gray-300 hover:text-brand-accent transition text-sm font-medium">项目案例</a>
+                    <a href="#news" class="text-gray-300 hover:text-brand-accent transition text-sm font-medium">行业动态</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-brand-accent hover:bg-yellow-600 text-white text-sm font-bold rounded transition shadow-lg shadow-orange-500/20">联系我们</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-accent focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-white hover:bg-gray-800 rounded">首页</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 rounded">服务</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-accent">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/1920/1080?grayscale&blur=2" alt="Background" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/90 via-brand-dark/60 to-brand-dark"></div>
+        </div>
+        
+        <div class="relative z-10 text-center max-w-5xl px-4 reveal">
+            <div class="inline-block px-4 py-1 border border-brand-accent/50 rounded-full mb-6">
+                <span class="text-brand-accent text-sm font-semibold tracking-widest uppercase">ENGINEERING & TECHNOLOGY</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-6">
+                以匠心致敬未来 <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-yellow-200">重塑工程设计边界</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                融合前沿网络科技与传统工程美学，哈尔滨素昔网络科技有限公司致力于为城市基础设施与商业空间提供全生命周期的数字化解决方案。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-4 bg-brand-accent text-white font-bold rounded shadow-lg hover:shadow-orange-500/40 hover:-translate-y-1 transition duration-300">
+                    启动合作
+                </a>
+                <a href="#projects" class="px-8 py-4 bg-transparent border border-white/30 text-white font-bold rounded hover:bg-white/10 transition duration-300">
+                    浏览案例
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
+        </div>
+    </header>
+
+    <section class="bg-brand-dark py-12 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+            <div class="p-4">
+                <div class="text-4xl font-bold text-white mb-2">10<span class="text-brand-accent">+</span></div>
+                <div class="text-gray-400 text-sm">年行业深耕</div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl font-bold text-white mb-2">500<span class="text-brand-accent">+</span></div>
+                <div class="text-gray-400 text-sm">成功交付案例</div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl font-bold text-white mb-2">98<span class="text-brand-accent">%</span></div>
+                <div class="text-gray-400 text-sm">客户满意度</div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl font-bold text-white mb-2">24<span class="text-brand-accent">h</span></div>
+                <div class="text-gray-400 text-sm">极速响应机制</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 items-center">
+            <div class="lg:w-1/2 reveal">
+                <div class="relative">
+                    <img src="https://picsum.photos/800/600?image=10" alt="Office" class="rounded shadow-2xl z-10 relative">
+                    <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-accent/10 rounded-full z-0"></div>
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-brand-dark/5 rounded-full z-0"></div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 reveal">
+                <h3 class="text-brand-accent font-bold tracking-widest uppercase mb-2">关于哈尔滨素昔网络科技有限公司</h3>
+                <h2 class="text-4xl font-bold text-brand-dark mb-6">技术与艺术的完美契合</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    哈尔滨素昔网络科技有限公司坐落于当地，是一家集工程设计与网络技术研发于一体的综合性服务企业。我们不仅仅是设计师，更是问题的解决者。
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    面对日益复杂的建筑需求与数字化转型的浪潮，我们摒弃了单一的服务模式，通过整合“工程美学”与“数字智能”，为客户提供从概念规划到落地实施的一站式解决方案。无论是商业空间的动线优化，还是企业内网的架构搭建，我们都力求极致。
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check-circle text-brand-accent mr-3"></i> 精准的工程测绘与规划
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check-circle text-brand-accent mr-3"></i> 前瞻性的数字化网络架构
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check-circle text-brand-accent mr-3"></i> 可持续发展的绿色设计理念
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-16 reveal">
+            <span class="text-brand-accent font-bold uppercase tracking-wider">OUR EXPERTISE</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2">核心业务领域</h2>
+            <div class="w-20 h-1 bg-brand-accent mx-auto mt-4"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 group reveal">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-accent transition duration-300">
+                    <i class="fas fa-drafting-compass text-2xl text-brand-dark group-hover:text-white transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-dark mb-4">工程设计与规划</h3>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    提供建筑结构设计、室内空间规划、机电工程配套等全方位设计服务。注重空间利用率与美学的平衡。
+                </p>
+                <a href="#" class="text-brand-accent font-medium hover:text-brand-dark inline-flex items-center">了解详情 <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+            </div>
+
+            <div class="bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 group reveal" style="transition-delay: 100ms;">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-accent transition duration-300">
+                    <i class="fas fa-network-wired text-2xl text-brand-dark group-hover:text-white transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-dark mb-4">网络架构搭建</h3>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    企业级网络解决方案，包括综合布线、机房建设、网络安全策略部署以及物联网设备接入规划。
+                </p>
+                <a href="#" class="text-brand-accent font-medium hover:text-brand-dark inline-flex items-center">了解详情 <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+            </div>
+
+            <div class="bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 group reveal" style="transition-delay: 200ms;">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-accent transition duration-300">
+                    <i class="fas fa-city text-2xl text-brand-dark group-hover:text-white transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-dark mb-4">智慧社区改造</h3>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    针对老旧社区与新建园区的智能化改造，集成安防监控、智能门禁与社区服务管理系统。
+                </p>
+                <a href="#" class="text-brand-accent font-medium hover:text-brand-dark inline-flex items-center">了解详情 <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-dark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/blueprint.png');"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between reveal">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-2">准备好开始您的工程项目了吗？</h2>
+                <p class="text-gray-400">让我们将您的构想转化为现实。</p>
+            </div>
+            <div class="mt-6 md:mt-0">
+                <a href="#contact" class="inline-block px-8 py-3 border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition font-bold rounded">
+                    免费咨询方案
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-6">技术细节与执行标准</h3>
+                    <p class="text-gray-600 mb-8">
+                        我们坚持执行高于行业标准的设计规范。每一个像素、每一根线条、每一次网络握手，都经过精密计算。
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-layer-group text-brand-accent mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">BIM 建模</h4>
+                                <p class="text-xs text-gray-500 mt-1">全生命周期可视化管理</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-server text-brand-accent mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">边缘计算</h4>
+                                <p class="text-xs text-gray-500 mt-1">低延迟数据处理架构</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-pencil-ruler text-brand-accent mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">深化设计</h4>
+                                <p class="text-xs text-gray-500 mt-1">施工图级别的精确度</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-brand-accent mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">网络安防</h4>
+                                <p class="text-xs text-gray-500 mt-1">多层级防火墙部署</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 reveal">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80" class="rounded-lg shadow-lg mt-8" alt="Tech">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=400&q=80" class="rounded-lg shadow-lg" alt="Engineering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-brand-primary">
+        <div class="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end reveal">
+            <div>
+                <span class="text-brand-accent font-bold uppercase tracking-wider">SELECTED WORKS</span>
+                <h2 class="text-3xl font-bold text-white mt-2">精选工程案例</h2>
+            </div>
+            <a href="#" class="hidden md:inline-block text-gray-400 hover:text-white transition">查看全部案例 <i class="fas fa-long-arrow-alt-right ml-1"></i></a>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+            <div class="group relative overflow-hidden rounded-lg cursor-pointer h-80 reveal">
+                <img src="https://picsum.photos/600/800?image=1040" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Project 1">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <span class="text-brand-accent text-xs font-bold uppercase">当地 · 滨海园区</span>
+                    <h3 class="text-xl font-bold text-white mt-1">智能物流园区网络规划</h3>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg cursor-pointer h-80 reveal md:col-span-2">
+                <img src="https://picsum.photos/800/600?image=124" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Project 2">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <span class="text-brand-accent text-xs font-bold uppercase">当地 · 商业中心</span>
+                    <h3 class="text-xl font-bold text-white mt-1">老旧写字楼综合布线改造</h3>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg cursor-pointer h-80 reveal md:col-span-2">
+                <img src="https://picsum.photos/800/600?image=192" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Project 3">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <span class="text-brand-accent text-xs font-bold uppercase">当地 · 社区中心</span>
+                    <h3 class="text-xl font-bold text-white mt-1">当地数字化展厅</h3>
+                </div>
+            </div>
+            <div class="group relative overflow-hidden rounded-lg cursor-pointer h-80 reveal">
+                <img src="https://picsum.photos/600/800?image=60" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Project 4">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <span class="text-brand-accent text-xs font-bold uppercase">企业内部</span>
+                    <h3 class="text-xl font-bold text-white mt-1">高密度机房精密空调与动环监控</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-16 reveal">
+            <h2 class="text-3xl font-bold text-brand-dark">标准化服务流程</h2>
+            <p class="text-gray-500 mt-4">从需求到交付，每一步都清晰透明</p>
+        </div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 -z-10 transform -translate-y-1/2"></div>
+                
+                <div class="bg-white p-6 md:w-1/4 text-center reveal">
+                    <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">1</div>
+                    <h4 class="font-bold text-lg mb-2">需求调研</h4>
+                    <p class="text-gray-500 text-sm">实地勘察，深入沟通业务痛点。</p>
+                </div>
+                <div class="bg-white p-6 md:w-1/4 text-center reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-brand-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">2</div>
+                    <h4 class="font-bold text-lg mb-2">方案设计</h4>
+                    <p class="text-gray-500 text-sm">出具图纸与技术方案，评审定稿。</p>
+                </div>
+                <div class="bg-white p-6 md:w-1/4 text-center reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">3</div>
+                    <h4 class="font-bold text-lg mb-2">工程实施</h4>
+                    <p class="text-gray-500 text-sm">标准化施工，严格把控质量与进度。</p>
+                </div>
+                <div class="bg-white p-6 md:w-1/4 text-center reveal" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">4</div>
+                    <h4 class="font-bold text-lg mb-2">运维交付</h4>
+                    <p class="text-gray-500 text-sm">系统调试、人员培训及售后保障。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 reveal">
+            <h2 class="text-3xl font-bold text-brand-dark mb-12 text-center">专家团队</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-white shadow-lg">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h4 class="font-bold text-brand-dark">张伟</h4>
+                    <p class="text-brand-accent text-sm font-medium uppercase">高级工程师</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-white shadow-lg">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h4 class="font-bold text-brand-dark">李娜</h4>
+                    <p class="text-brand-accent text-sm font-medium uppercase">设计总监</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-white shadow-lg">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Team" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h4 class="font-bold text-brand-dark">王强</h4>
+                    <p class="text-brand-accent text-sm font-medium uppercase">网络架构师</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-white shadow-lg">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h4 class="font-bold text-brand-dark">赵敏</h4>
+                    <p class="text-brand-accent text-sm font-medium uppercase">项目经理</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center reveal">
+            <i class="fas fa-quote-left text-4xl text-brand-accent mb-6 opacity-50"></i>
+            <p class="text-2xl font-serif italic mb-8 leading-relaxed">
+                "哈尔滨素昔网络科技有限公司团队在我们的社区服务中心改造项目中展现了惊人的专业度。他们不仅解决了复杂的布线问题，还提出了非常有建设性的空间利用方案。真正的良心工匠！"
+            </p>
+            <div class="flex items-center justify-center gap-4">
+                <div class="text-right">
+                    <div class="font-bold text-lg">负责人</div>
+                    <div class="text-brand-accent text-sm">当地社区服务中心</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-gray-400 text-sm mb-6 uppercase tracking-widest">Trusted By</p>
+            <div class="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-aws text-3xl"></i> Amazon</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-google text-3xl"></i> Google Cloud</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-microsoft text-3xl"></i> Microsoft</div>
+                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fas fa-building text-3xl"></i> 当地知名房企</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-3xl mx-auto px-4 reveal">
+            <h2 class="text-3xl font-bold text-brand-dark mb-10 text-center">常见问题解答</h2>
+            <div class="space-y-4">
+                <details class="group bg-gray-50 p-6 rounded-lg cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium text-lg list-none text-brand-dark">
+                        你们主要承接哪些类型的工程项目？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        我们主要承接办公楼宇智能化改造、社区公共设施配套工程、机房建设、综合布线以及相关的室内设计与施工项目。
+                    </p>
+                </details>
+                <details class="group bg-gray-50 p-6 rounded-lg cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium text-lg list-none text-brand-dark">
+                        能否提供异地服务？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        目前我们的核心业务集中在中国及周边地区，以确保能够提供最快速的现场响应和售后服务。大型项目可具体商议。
+                    </p>
+                </details>
+                <details class="group bg-gray-50 p-6 rounded-lg cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium text-lg list-none text-brand-dark">
+                        项目售后的质保期是多久？
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        一般工程项目提供1-3年的质保期，网络设备遵循原厂质保标准。我们还提供长期的运维托管服务供客户选择。
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-center reveal">
+            <h2 class="text-3xl font-bold text-brand-dark">行业观察与公司动态</h2>
+            <a href="#" class="text-brand-accent font-bold hover:underline">更多资讯</a>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <article class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition reveal">
+                <img src="https://picsum.photos/400/250?image=3" alt="News" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-xs text-brand-accent font-bold mb-2">2023-10-24</div>
+                    <h3 class="font-bold text-lg mb-2 text-brand-dark hover:text-brand-accent cursor-pointer">智慧城市建设中的边缘计算应用</h3>
+                    <p class="text-gray-500 text-sm line-clamp-3">
+                        随着物联网设备的激增，如何在社区终端进行高效的数据处理成为了工程设计的关键...
+                    </p>
+                </div>
+            </article>
+            <article class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition reveal" style="transition-delay: 100ms;">
+                <img src="https://picsum.photos/400/250?image=6" alt="News" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-xs text-brand-accent font-bold mb-2">2023-09-15</div>
+                    <h3 class="font-bold text-lg mb-2 text-brand-dark hover:text-brand-accent cursor-pointer">哈尔滨素昔网络科技有限公司荣获年度优秀工程设计奖</h3>
+                    <p class="text-gray-500 text-sm line-clamp-3">
+                        在近日举办的建筑科技创新大会上，我司凭借当地某社区改造项目获此殊荣。
+                    </p>
+                </div>
+            </article>
+            <article class="bg-white rounded-lg shadow overflow-hidden hover:shadow-xl transition reveal" style="transition-delay: 200ms;">
+                <img src="https://picsum.photos/400/250?image=20" alt="News" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-xs text-brand-accent font-bold mb-2">2023-08-01</div>
+                    <h3 class="font-bold text-lg mb-2 text-brand-dark hover:text-brand-accent cursor-pointer">绿色建筑：办公室节能改造指南</h3>
+                    <p class="text-gray-500 text-sm line-clamp-3">
+                        如何通过智能化灯光控制与暖通系统优化，降低企业30%以上的能源消耗？
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="relative py-24 bg-brand-primary overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-dark/50 transform skew-x-12 translate-x-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="text-white reveal">
+                    <span class="text-brand-accent font-bold uppercase tracking-wider">GET IN TOUCH</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6">联系我们</h2>
+                    <p class="text-gray-400 mb-10">
+                        无论是项目咨询、商务合作还是加入我们，欢迎随时联系。
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white/10 rounded flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-brand-accent text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">公司地址</h4>
+                                <p class="text-gray-400 text-sm mt-1 max-w-xs">
+                                    黑龙江省哈尔滨市高新技术产业开发区科技创新城创新创业广场 19 号楼(创新一路 699 号)B537-221室
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white/10 rounded flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-brand-accent text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">电子邮箱</h4>
+                                <p class="text-gray-400 text-sm mt-1">
+                                    <a href="mailto:dev@suxinet.icu" class="hover:text-brand-accent transition">dev@suxinet.icu</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white/10 rounded flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-brand-accent text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">联系电话</h4>
+                                <p class="text-gray-400 text-sm mt-1">
+                                    <a href="tel:15383383680" class="hover:text-brand-accent transition font-mono text-lg">15383383680</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 shadow-2xl reveal">
+                    <h3 class="text-2xl font-bold text-brand-dark mb-6">发送留言</h3>
+                    <form onsubmit="event.preventDefault(); alert('感谢您的留言，我们会尽快联系您！');">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">姓名</label>
+                                <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:border-brand-accent transition" placeholder="您的称呼">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">电话</label>
+                                <input type="tel" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:border-brand-accent transition" placeholder="联系方式">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">邮箱</label>
+                            <input type="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:border-brand-accent transition" placeholder="example@email.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">需求描述</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:outline-none focus:border-brand-accent transition" placeholder="请简述您的项目需求..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-accent text-white font-bold py-4 rounded hover:bg-yellow-600 transition shadow-lg">
+                            提交信息
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="h-96 w-full bg-gray-200 relative overflow-hidden group">
+        <img src="https://picsum.photos/1920/600?image=1011" alt="Map Location" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition duration-500">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="bg-white/90 p-4 rounded shadow-lg flex items-center gap-3 backdrop-blur-sm">
+                <i class="fas fa-map-pin text-red-500 text-2xl"></i>
+                <div class="text-brand-dark font-bold">黑龙江省哈尔滨市高新技术产业开发区科技创新城创新创业广场 19 号楼(创新一路 699 号)B537-221室</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-brand-dark text-gray-400 pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h2 class="text-white text-xl font-bold mb-4">哈尔滨素昔网络科技有限公司</h2>
+                <p class="text-sm leading-relaxed mb-6">
+                    致力于工程设计与数字科技的深度融合，为客户创造可持续的商业价值。
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brand-accent hover:text-white transition"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brand-accent hover:text-white transition"><i class="fab fa-weibo"></i></a>
+                    <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brand-accent hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-white font-bold mb-4">快速导航</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#about" class="hover:text-brand-accent transition">关于我们</a></li>
+                    <li><a href="#services" class="hover:text-brand-accent transition">核心服务</a></li>
+                    <li><a href="#projects" class="hover:text-brand-accent transition">工程案例</a></li>
+                    <li><a href="#news" class="hover:text-brand-accent transition">新闻动态</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white font-bold mb-4">服务领域</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-accent transition">建筑工程设计</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">网络架构规划</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">智慧社区方案</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">IT运维托管</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-white font-bold mb-4">订阅动态</h3>
+                <p class="text-xs mb-4">获取最新的行业洞察与优惠信息。</p>
+                <form class="flex" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email" class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-l focus:outline-none text-sm text-white">
+                    <button class="bg-brand-accent px-4 rounded-r text-white hover:bg-yellow-600 transition"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center text-xs">
+            <p>&copy; 2023 哈尔滨素昔网络科技有限公司 版权所有.</p>
+            <p class="mt-2 text-gray-600">本站部分图片来源于网络，如有侵权请联系删除。</p>
+        </div>
+    </footer>
+
+    <a href="#home" id="backToTop" class="fixed bottom-8 right-8 bg-brand-accent text-white w-10 h-10 rounded flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition duration-300 z-50 hover:bg-yellow-600">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // Navbar Style on Scroll & Back to Top
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+    </script>
+</body>
+</html>
